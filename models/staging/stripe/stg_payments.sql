@@ -4,7 +4,7 @@ SELECT
     PAYMENTMETHOD AS PAYMENT_METHOD,
     STATUS,
 
-    -- amount is stored in cents, convert it to dollars
+    -- The amount is stored in cents, convert it to dollars
     AMOUNT / 100 AS AMOUNT,
     CREATED AS CREATED_AT
 FROM {{ source('stripe', 'payment') }}
