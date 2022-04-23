@@ -6,7 +6,23 @@ sources:
       schema: jaffle_shop
       tables:
         - name: customers
+          description: Raw Customers data (from BigQuery)
+          columns:
+            - name: id
+              description: Primary key for customers
+              tests:
+                - unique
+                - not_null
+
         - name: orders
+          description: Raw Orders data (from BigQuery)
+          columns:
+            - name: id
+              description: Primary key for orders
+              tests:
+                - unique
+                - not_null
+
           loaded_at_field: _etl_loaded_at
           freshness:
             warn_after:
