@@ -9,6 +9,12 @@ models:
         tests:
           - unique
           - not_null
+      
+      - name: first_name
+        description: First name of the customer.
+      
+      - name: last_name
+        description: Last name of the customer.
 
   - name: stg_orders
     description: Staged Order data from our jaffle shop app.
@@ -20,11 +26,14 @@ models:
           - not_null
 
       - name: customer_id
-        decription: Foreign key to stg_customers.customer_id.
+        description: Foreign key to stg_customers.customer_id.
         tests:
           - relationships:
               to: ref('stg_customers')
               field: customer_id
+      
+      - name: order_date
+        description: Date of the order when it was placed.
 
       - name: status
         description: "{{ doc('order_status') }}"
