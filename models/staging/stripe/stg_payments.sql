@@ -5,6 +5,6 @@ SELECT
     STATUS,
 
     -- The amount is stored in cents, convert it to dollars
-    AMOUNT / 100 AS AMOUNT,
+    {{ cents_to_dollars('amount') }} AS AMOUNT,
     CREATED AS CREATED_AT
 FROM {{ source('stripe', 'payment') }}
